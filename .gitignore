@@ -30,8 +30,6 @@ build/Release
 node_modules
 jspm_packages
 NOTES
-.NOTES
-/src/NOTES
 
 # Optional npm cache directory
 .npm
