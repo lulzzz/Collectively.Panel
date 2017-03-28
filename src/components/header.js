@@ -11,13 +11,9 @@ class Header extends Component {
         <Link className="nav-link" to="/signout">Sign Out</Link>
       </li>
     } else {
-      //show a link to sign in
       return [
         <li className="nav-item" key={1}>
           <Link className="nav-link" to="/signin">Sign in</Link>
-        </li>,
-        <li className="nav-item" key={2}>
-          <Link className="nav-link" to="/signup">Sign Up</Link>
         </li>
       ];
 
