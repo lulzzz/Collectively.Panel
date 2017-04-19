@@ -14,7 +14,7 @@ export function signinUser ({ email, password}) {
       dispatch({ type: AUTH_USER })
       // SAVE the JWT token
       localStorage.setItem('token', reponse.data.token);
-      // redirect to the route '/dashboard' asd123123123
+      // redirect to the route '/dashboard' asd123123123asdadsadsad
       browserHistory.push('/dashboard');
     })
     .catch(() => {
