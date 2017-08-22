@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 import Header from './header'
 import { Link } from 'react-router'
 class Remarks extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { remarks: [] }
+  }
+  componentDidMount() {
+        axios.get('https://api.becollective.ly/remarks/0cecd045-2f30-4b42-9f11-0a5638885c24')
+        .then(response => {
+        this.setState({ remarks: response.data })
+  })
+}
   render() {
+    if(this.state.remarks.length === 0) {
+      return false;
+    }
+    console.log(this.state.remarks,'this.state z rendera')
     return (
       <div id="wrapper">
       <nav className="navbar navbar-dark bg-inverse navbar-fixed-top">
@@ -36,35 +51,52 @@ class Remarks extends Component {
               </ul>
           </div>
       </nav>
-    <div class="box">
-      <div class="box-header">
-        <h3 class="box-title">Data Table With Full Features</h3>
-      </div>
-      <div class="box-body">
-        <table id="example1" class="table table-bordered table-striped">
-          <thead>
+      <section className="content">
+        <div className="row">
+          <div className="col-xs-12">
+            <div className="box">
+              <div className="box-header">
+                <h3 className="box-title">Remarks</h3>
+              </div>
+              <div className="box-body">
+                <table id="example2" className="table table-bordered table-hover">
+                  <thead>
             <tr>
-              <th>Rendering engine</th>
-              <th>Browser</th>
-              <th>Platform(s)</th>
-              <th>Engine version</th>
-              <th>CSS grade</th>
+              <th>ID</th>
+              <th>Location</th>
+              <th>Description</th>
+              <th>State</th>
+              <th>Created At</th>
+              <th>Delete Remark</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Trident</td>
-              <td>Internet
-                Explorer 4.0</td>
-              <td>Win 95+</td>
-              <td> 4</td>
-              <td>X</td>
+              <td>{this.state.remarks.id}</td>
+              <td>{this.state.remarks.location.address}</td>
+              <td>{this.state.remarks.group.name}</td>
+              <td>{this.state.remarks.state.state}</td>
+              <td>{this.state.remarks.createdAt}</td>
+              <td><span className="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+            </tr>
+            
+            <tr>
+              <td>{this.state.remarks.id}</td>
+              <td>{this.state.remarks.location.address}</td>
+              <td>{this.state.remarks.group.name}</td>
+              <td>{this.state.remarks.state.state}</td>
+              <td>{this.state.remarks.createdAt}</td>
+              <td><span className="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
 </div>
+</div>
+</section>
+</div>
+
 
     );
   }
