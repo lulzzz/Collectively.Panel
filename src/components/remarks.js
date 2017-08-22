@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router'
 import Header from './header'
-class Dashboard extends Component {
+import { Link } from 'react-router'
+class Remarks extends Component {
   render() {
     return (
       <div id="wrapper">
@@ -36,9 +36,38 @@ class Dashboard extends Component {
               </ul>
           </div>
       </nav>
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Data Table With Full Features</h3>
+      </div>
+      <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Rendering engine</th>
+              <th>Browser</th>
+              <th>Platform(s)</th>
+              <th>Engine version</th>
+              <th>CSS grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Trident</td>
+              <td>Internet
+                Explorer 4.0</td>
+              <td>Win 95+</td>
+              <td> 4</td>
+              <td>X</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+</div>
+
     );
   }
 }
 
-export default Dashboard;
+export default Remarks;
