@@ -1,0 +1,6 @@
+{
+  "config": {
+    "port": 9050,
+    "apiUrl": "https://api-dev.becollective.ly"
+  }
+}

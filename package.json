@@ -28,6 +28,7 @@
     "axios": "^0.15.3",
     "babel-preset-stage-1": "^6.1.18",
     "lodash": "^3.10.1",
+    "node-fetch": "^1.6.3",
     "react": "^0.14.9",
     "react-addons-css-transition-group": "^15.6.0",
     "react-addons-transition-group": "^15.6.0",
