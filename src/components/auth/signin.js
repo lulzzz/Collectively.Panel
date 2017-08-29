@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import * as actions from '../../actions';
+import config from '../../config'
 
 class Signin extends Component {
   handleFormSubmit({ email, password }) {
@@ -19,6 +20,7 @@ class Signin extends Component {
   }
 
   render() {
+    console.log('CONFIG ENDPOINT', config)
     const { handleSubmit, fields: { email, password }} = this.props;
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>

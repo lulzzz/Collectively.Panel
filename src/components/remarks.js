@@ -5,19 +5,25 @@ import { Link } from 'react-router'
 class Remarks extends Component {
   constructor(props) {
     super(props)
-    this.state = { remarks: [] }
+    this.state = { remarks: [], allremarks: [] }
   }
   componentDidMount() {
         axios.get('https://api.becollective.ly/remarks/0cecd045-2f30-4b42-9f11-0a5638885c24')
         .then(response => {
         this.setState({ remarks: response.data })
   })
+  axios.get('https://api-dev.becollective.ly/remarks?latest=true')
+  .then(response => {
+  this.setState({ allremarks: response.data })
+})
+
 }
   render() {
     if(this.state.remarks.length === 0) {
       return false;
     }
-    console.log(this.state.remarks,'this.state z rendera')
+    console.log(this.state, 'this.state---->')
+
     return (
       <div id="wrapper">
       <nav className="navbar navbar-dark bg-inverse navbar-fixed-top">
@@ -79,7 +85,7 @@ class Remarks extends Component {
               <td>{this.state.remarks.createdAt}</td>
               <td><span className="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
             </tr>
-            
+
             <tr>
               <td>{this.state.remarks.id}</td>
               <td>{this.state.remarks.location.address}</td>
