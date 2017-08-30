@@ -6,23 +6,25 @@ import { Link } from 'react-router';
 class Header extends Component {
   renderLinks() {
     if(this.props.authenticated) {
-      return
-      <li className="nav-item">
-        <Link className="nav-link" to="/signout">Sign Out</Link>
-      </li>
-    } else {
-      return
+      return (
         <li className="nav-item">
-          asdasdasd
+          <Link className="nav-link" to="/signout">Sign Out</Link>
+        </li>
+      )
+
+    } else {
+      return (
+        <li className="nav-item">
           <Link className="nav-link" to="/signin">Sign in</Link>
         </li>
+      )  
     }
   }
 
   render() {
     return (
       <nav className="navbar navbar-light">
-        {/* <Link to="/" className="navbar-brand">Collectively Admin Panel</Link> */}
+        <Link to="/" className="navbar-brand">Collectively Admin Panel</Link>
         <ul className="nav navbar-nav">
           {this.renderLinks()}
         </ul>
