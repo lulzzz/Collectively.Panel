@@ -7,7 +7,6 @@ const ROOT_URL_CONFIG = config.apiEndPoint
 const ROOT_URL = 'https://api.becollective.ly/sign-in';
 const URL = 'https://api.becollective.ly/';
 const provider = 'collectively'
-// LOGIN
 // patrykh@reactpoland.com
 // patryk
 export function signinUser ({ email, password }) {
