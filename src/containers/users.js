@@ -25,6 +25,8 @@ class Users extends Component {
             <span className="title">{user.name}</span>
             <p>{user.role}</p>
             <p>{user.state}</p>
+            <p>{user.createdAt.substring(0,10)}</p>
+
           </li>
         </ul>
         </div>
