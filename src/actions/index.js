@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, BROWSE_GROUPS, BROWSE_ORGANIZATIONS } from './types';
+import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, BROWSE_GROUPS, BROWSE_ORGANIZATIONS, BROWSE_USERS } from './types';
 import config from '../config'
 
 const ROOT_URL_CONFIG = config.apiEndPoint
@@ -45,8 +45,8 @@ export function browseGroups() {
 }
 
 export function browseOrganizations() {
-  return funcio(dispatch) {
-    exios.get(`${URL}/organizations`)
+  return function(dispatch) {
+    axios.get(`${URL}/organizations`)
     .then(response => {
       dispatch({ type: BROWSE_ORGANIZATIONS, payload: response.data })
     })
@@ -54,8 +54,8 @@ export function browseOrganizations() {
 }
 
 export function browseUsers() {
-  return funcio(dispatch) {
-    exios.get(`${URL}/users`)
+  return function(dispatch) {
+    axios.get(`${URL}/users`)
     .then(response => {
       dispatch({ type: BROWSE_USERS, payload: response.data })
     })
