@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { browseGroups } from '../actions/index'
 import { bindActionCreators } from 'redux'
+import Navigation from '../components/navigation'
 
 class Groups extends Component {
   componentWillMount() {
@@ -10,11 +11,11 @@ class Groups extends Component {
 
 
   render() {
-    console.log(this.props)
+    console.log(this.props.groups, 'PORPSY>>>>>>>>>')
 
     return (
       <div>
-        {/* {this.renderList()} */}
+        dupa dupa
       </div>
     )
   }

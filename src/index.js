@@ -10,6 +10,8 @@ import Signin from './components/auth/signin';
 import Signout from './components/auth/signout';
 import Dashboard from './components/dashboard';
 import Remarks from './components/remarks';
+import Organizations from './containers/organizations';
+import Users from './containers/users';
 import RequireAuth from './components/auth/require_auth';
 import reducers from './reducers';
 import { AUTH_USER } from './actions/types';
@@ -32,6 +34,9 @@ ReactDOM.render(
         <Route path="signout" component={Signout} />
         <Route path="dashboard" component={RequireAuth(Dashboard)} />
         <Route path="remarks" component={RequireAuth(Remarks)} />
+        <Route path="organizations" component={RequireAuth(Organizations)} />
+        <Route path="users" component={RequireAuth(Users)} />
+
 
     </Route>
   </Router>

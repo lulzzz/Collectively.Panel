@@ -2,20 +2,49 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { browseUsers } from '../actions/index'
 import { bindActionCreators } from 'redux'
-
+import Navigation from '../components/navigation'
 class Users extends Component {
   componentWillMount() {
-    this.props.browseOrganizations()
+    this.props.browseUsers()
   }
 
 
-  render() {
-    console.log(this.props)
 
+  render() {
+    if (this.props.users.users == undefined) {
+      return null;
+    }
+
+    const newUsers = this.props.users.users.map(user => {
+      return (
+        <div key={user.userId}>
+          <ul className="collection">
+
+          <li className="collection-item avatar">
+            <i className="material-icons circle"><img src={user.avatarUrl} width="40px" height="45px"/></i>
+            <span className="title">{user.name}</span>
+            <p>{user.role}</p>
+            <p>{user.state}</p>
+          </li>
+        </ul>
+        </div>
+
+      )
+    })
+    console.log('newUsers', newUsers)
+
+    console.log('this.props.users', this.props.users.users)
     return (
-      <div>
-        {/* {this.renderList()} */}
-      </div>
+
+      // <div>
+      //   {/* {this.renderList()} */}
+      // </div>
+      <Navigation>
+        <div>
+          {newUsers}
+        </div>
+      </Navigation>
+
     )
   }
 }
