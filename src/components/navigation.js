@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 
 class Navigation extends Component {
@@ -7,10 +8,11 @@ class Navigation extends Component {
       <div className="row">
         <div className="col s3">
           <div className="collection">
-            <a href="#!" className="collection-item">Strona Główna</a>
-            <a href="#!" className="collection-item">Zgłoszenia</a>
-            <a href="#!" className="collection-item">Użytkownicy</a>
-            <a href="#!" className="collection-item">Statystyki</a>
+            <Link className="collection-item" to="/dashboard">Strona Główna</Link>
+            <Link className="collection-item" to="/remarks">Zgłoszenia</Link>
+            <Link className="collection-item" to="/users">Użytkownicy</Link>
+            <Link className="collection-item" to="/organizations">Organizacje</Link>
+            <Link className="collection-item" to="/statics">Statystyki</Link>
           </div>
         </div>
        <div className="col s9">
