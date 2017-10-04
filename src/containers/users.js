@@ -37,10 +37,6 @@ class Users extends Component {
 
     console.log('this.props.users', this.props.users.users)
     return (
-
-      // <div>
-      //   {/* {this.renderList()} */}
-      // </div>
       <Navigation>
         <div>
           {newUsers}

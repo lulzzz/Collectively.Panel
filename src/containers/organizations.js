@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { browseOrganizations } from '../actions/index'
 import { bindActionCreators } from 'redux'
+import Navigation from '../components/navigation'
 
 class Organizations extends Component {
   componentWillMount() {
@@ -10,12 +11,31 @@ class Organizations extends Component {
 
 
   render() {
-    console.log(this.props)
+    if (this.props.organizations.organizations == undefined) {
+      return null;
+    }
+    const organizationList = this.props.organizations.organizations.map(organization => {
+      return (
+        <div key={organization.id}>
+          <ul className="collection">
+          <li className="collection-item avatar">
+            <span className="title">{organization.name}</span>
+            <p>{organization.state}</p>
+            <p>{organization.createdAt.substring(0,10)}</p>
+          </li>
+        </ul>
+        </div>
+      )
+    })
+
+    console.log(organizationList, 'orgazationList>>>>>>>>>')
 
     return (
-      <div>
-        {/* {this.renderList()} */}
-      </div>
+      <Navigation>
+        <div>
+          {organizationList}
+        </div>
+      </Navigation>
     )
   }
 }
